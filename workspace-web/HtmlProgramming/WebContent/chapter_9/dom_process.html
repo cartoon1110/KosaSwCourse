@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function fun1() {
+				//HTML5에서 추가된 방식
+				var h2Array = document.querySelectorAll("h2");
+				//이전 방식
+				//var h2Array = document.getElementsByTagName("h2");
+				
+				for(var i=0; i<h2Array.length; i++) {
+					h2Array[i].style.backgroundColor = "#FF0000";
+				}
+			}
+			function fun2() {
+				//HTML5에서 추가된 방식
+				var h2 = document.querySelector("#process1");
+				//이전 방식
+				//var h2 = document.getElementById("process1");
+				
+				h2.style.backgroundColor = "#FF0000";
+			}
+			function fun3() {
+				//HTML5에서 추가된 방식
+				var h2Array = document.querySelectorAll(".process2");
+				//이전 방식
+				//var h2Array = document.getElementsByClassName("process2");
+				
+				for(var i=0; i<h2Array.length; i++) {
+					h2Array[i].style.backgroundColor = "#FF0000";
+				}
+			}
+		</script>
+	</head>
+	
+	<body>
+		<h2 id="process1">Process - 1</h2>
+		<h2 class="process2">Process - 2</h2>
+		<h2 class="process2">Process - 2</h2>
+		<hr/>
+		<button onclick="fun1()">태그명으로 찾기</button>
+		<button onclick="fun2()">id로 찾기</button>
+		<button onclick="fun3()">class로 찾기</button>
+	</body>
+</html>

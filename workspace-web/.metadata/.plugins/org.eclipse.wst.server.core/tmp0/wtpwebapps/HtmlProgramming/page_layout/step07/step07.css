@@ -1,0 +1,38 @@
+/*
+[step01.css]
+#content { 
+	height: 500px; <-- 제거
+}
+
+[step06.css]
+#main-section {
+    float: left;
+    width: 630px;
+    height: 500px; <-- 제거
+}
+
+#main-aside {
+    float: right;
+    width: 200px;
+    height: 500px; <-- 제거
+    border-left: 1px solid #C8C8C8; <-- 제거
+}
+*/
+
+article { 
+    padding: 0 10px 20px 10px;
+    border-bottom: 1px solid #C8C8C8;
+}
+
+.article-header { padding: 20px 0; }
+.article-title { 
+    font-size: 25px;
+    font-weight: 500; 
+    padding-bottom: 10px;
+}
+.article-date { font-size: 13px; }
+.article-body {
+    font-size: 14px;
+}
+
+

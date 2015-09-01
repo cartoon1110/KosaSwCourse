@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<meta charset="UTF-8">
+			<title>Insert title here</title>
+			<script language=javascript>
+				document.cookie="test=ok."
+			</script>
+		</head>
+		<body>
+			<div align=center>
+				<h2>호은이네 게시판</h2>
+				<hr>
+				<form name="boardform" method="post" action="boardWrite.jsp">
+					<table border="1" cellspacing="1" cellpadding="5">
+						<tr>
+							<td>제목:</td>
+							<td><input type="text" size="20" name="title"></td>
+						</tr>
+						<tr>
+							<td>글쓴이:</td>
+							<td><input type="text" size="10" name="writer"></td>
+						</tr>
+						<tr>
+							<td>내용:</td>
+							<td><textarea cols="20" rows="5" name="context"></textarea></td>
+						</tr>
+						<tr>
+							<td>성별:</td>
+							<td><input type="radio" name="성별" value="남자"/>남
+								<input type="radio" name="성별" value="여자"/>여</td>
+						</tr>
+						<tr>
+							<td>비밀번호:</td>
+							<td><input type="text" size="20" name="password"></td>
+						</tr>
+						<tr>
+							<td>공개여부:</td>
+							<td>
+								<select name="secret">
+									<option selected value="공개">공개</option>
+									<option value="비공개">비공개</option>
+								</select>
+							</td>
+						</tr>
+			
+						<tr>
+							<td colspan=2 align=center>
+								<input type=submit value="확인">
+								<input type=reset value="취소">
+							</td>
+						</tr>
+					
+					</table>
+				</form>
+			</div>
+		</body>
+	</html>

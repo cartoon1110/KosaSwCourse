@@ -1,0 +1,25 @@
+package controller;
+
+import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class BoardController {
+
+	public void handle(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String action=request.getParameter("action");
+		switch(action){
+		case "list": list(request,response);break;
+		}
+	}
+
+	private void list(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		RequestDispatcher rd=request.getRequestDispatcher("/exam_mvc/list.jsp");
+		rd.forward(request, response);
+		
+	}
+
+}

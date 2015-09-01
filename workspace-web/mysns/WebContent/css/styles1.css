@@ -1,0 +1,46 @@
+
+.n1 {
+	width: 130px;
+	height: auto;
+	animation: ani1 5s linear infinite;
+	opacity: 0.3;
+	position: absolute;
+	right: 40px;
+}
+
+.n2{
+	width:180px;
+	height:auto;
+	animation: ani2 5s linear infinite;
+	opacity: 0.3;
+	position: absolute;
+	right: 0px;
+}
+
+@keyframes ani1{
+	0% { top:0px;}
+	10%{ right:10px;}
+	20%{ right:40px;}
+	30%{ right:10px;}
+	40%{ right:40px;}
+	50%{ right:10px;}
+	60%{ right:40px;}
+	70%{ right:10px}
+	80%{ top:190px; right:20px;}
+	90&{ top:190px; right:20px;}
+	100% { top: 190px; right:20px; }	
+}
+
+@keyframes ani2{
+	0% { top:0px;}
+	10%{ right: 30px;}
+	20%{right:10px;}
+	30%{right:30px;}
+	40%{right:10px;}
+	50%{right:30px;}
+	60%{right:10px;}
+	70%{right:30px}
+	80%{top:190px; right:20px;}
+	90&{ top:190px; right:20px;}
+	100% { top: 190px; right:20px; }	
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8">
+		<title>design</title>
+		<link href="http://api.mobilis.co.kr/webfonts/css/?fontface=NanumGothicWeb" rel="stylesheet" />
+		<link rel="stylesheet" href="include/css/style.css" />
+		<link rel="stylesheet" href="include/css/tabs.css" />
+		<script src="include/js/jquery.min.js"></script>
+		<script src="include/js/jquery.tabs.js"></script>
+		<script src="include/js/tab_design.js"></script>
+	</head>
+	<body>
+		<div id="page-wrap">
+			<h1>성혀니 과제랍니다<span>YSH</span></h1>
+			
+			<div id="tab_design">
+				<nav class="tab_menu clearfix">
+					<ul>
+						<li>
+							<a href="#clock">
+								<img src="include/images/clock-icon.png" alt="" />시계
+							</a>
+						</li>
+						<li>
+							<a href="#weather">
+								<img src="include/images/weather-icon.png" alt="" />날씨
+							</a>
+						</li>
+						<li>
+							<a href="#calender">
+								<img src="include/images/calendar-icon.png" alt="" />캘린더
+							</a>
+						</li>
+						<li>
+							<a href="#chart">
+								<img src="include/images/chart_pie-icon.png" alt="" />차트
+							</a>
+						</li>
+						<li>
+							<a href="#chat">
+								<img src="include/images/chat-icon.png" alt="" />채팅
+							</a>
+						</li>
+					</ul>
+				</nav>
+			
+			</div>
+		
+		
+		
+		</div>
+	</body>
+</html>

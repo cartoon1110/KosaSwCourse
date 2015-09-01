@@ -1,0 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+
+<%-- 클라이언트가 보낸 데이터를 Board 객체에 저장 --%>
+<%
+String title=request.getParameter("title");
+%>

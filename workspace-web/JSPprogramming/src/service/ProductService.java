@@ -1,0 +1,128 @@
+package service;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import dao.ConnectionManager1;
+import dao.ProductDao;
+import dto.Product;
+
+
+public class ProductService {
+	public void add(Product product) {
+		Connection conn = null;
+		try {
+			conn = ConnectionManager1.getConnection();
+			ProductDao productDao = new ProductDao(conn);
+			productDao.insert(product);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+	}
+	
+	public List<Product>  getPage(int pageNo, int rowsPerPage) {
+		List<Product> list = new ArrayList<Product>();
+		Connection conn = null;
+		try {
+			conn = ConnectionManager1.getConnection();
+			ProductDao productDao = new ProductDao(conn);
+			list = productDao.selectByPage(pageNo, rowsPerPage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+		return list;
+	}
+	
+	public Product getProduct(int productNo) {
+		Product product = null;
+		Connection conn = null;
+		try {
+			conn = ConnectionManager1.getConnection();
+			ProductDao productDao = new ProductDao(conn);
+			product = productDao.selectByPk(productNo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+		return product;
+	}
+	
+	public void modify(Product product) {
+		Connection conn = null;
+		try {
+			conn = ConnectionManager1.getConnection();
+			ProductDao productDao = new ProductDao(conn);
+			productDao.update(product);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+	}
+	
+	public void remove(long productNo) {
+		Connection conn = null;
+		try {
+			conn = ConnectionManager1.getConnection();
+			ProductDao productDao = new ProductDao(conn);
+			productDao.delete(productNo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+	}
+	
+	private int rowsPerPage = 10;
+	private int pagesPerGroup = 3;
+	
+	public int getRowsPerPage() { 
+		return rowsPerPage; 
+	}
+	
+	public int getGroupNo(int pageNo) {
+		return (pageNo-1)/pagesPerGroup + 1;
+	}
+	
+	public int getStartPageNo(int groupNo) {
+		return (groupNo-1)*pagesPerGroup + 1;
+	}
+	public int getEndPageNo(int groupNo) {
+		return getStartPageNo(groupNo) + pagesPerGroup - 1;
+	}
+	
+	public int getTotalPageNo() {
+		int totalPageNo = 1;
+		Connection conn = null;
+		try {
+			conn = ConnectionManager1.getConnection();
+			ProductDao productDao = new ProductDao(conn);
+			int rows = productDao.selectCount();
+			totalPageNo = rows / rowsPerPage;
+			if(rows%rowsPerPage != 0) {
+				totalPageNo++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+		return totalPageNo;
+	}
+	
+	public int getTotalGroupNo() {
+		int totalPageNo = getTotalPageNo();
+		int totalGroupNo = totalPageNo / pagesPerGroup;
+		if(totalPageNo%pagesPerGroup != 0) {
+			totalGroupNo++;
+		}
+		return totalGroupNo;
+	}
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			#out {
+				display: none;
+			}
+		</style>
+		<script src="jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			$(function() {
+				$("#btnHtml").click(function(){
+					$.ajax({
+						url:"ajax07_html.jsp",
+						dataType: "html",
+						success: function(data) {
+							$("#ad").html(data);
+						}	
+					});
+				});
+				
+				$("#btnJson").click(function(){
+					$.ajax({
+						url:"ajax07_json.jsp",
+						dataType: "json",
+						success: function(data) {
+							console.log(data);
+							console.log(data.title);
+							console.log(data.image);
+							var html="";
+							html+='<div style="width:100%; height:100%">';
+							html+='<span style="display:block; height:30px">';
+							html+=data.title;
+							html+='</span>';
+							html+='<img width="100%" height="100%" src="../common/images/miniroombg/'+data.image+'"/>';
+							html+='</div>';
+							$("#ad").html(html);
+
+						}	
+					});
+				});
+				
+				$("#btnXml").click(function(){
+					$.ajax({
+						url:"ajax07_xml.jsp",
+						dataType: "xml",
+						success: function(data) {
+							console.log(data);
+						}	
+					});
+				});
+			});
+		</script>
+	</head>
+	
+	<body>
+		<button id="btnHtml">HTML로 받기</button>
+		<button id="btnJson">JSON으로 받기</button>
+		<button id="btnXml">XML로 받기</button>
+		<hr/>
+		
+		<div id="ad" style="width:200px;height:150px;border:1px solid black">	 
+		</div>
+		<hr/>
+		주요 내용.....
+	</body>
+</html>

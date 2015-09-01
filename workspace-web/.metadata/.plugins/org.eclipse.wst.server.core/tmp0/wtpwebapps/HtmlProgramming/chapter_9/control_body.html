@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function fun1() {
+				var div1 = document.querySelector("#div1");
+				console.log(div1);
+				
+				var data_att1 = div1.getAttribute("data-att1");
+				console.log(data_att1);
+			}
+			
+			function fun2() {
+				var div1 = document.querySelector("#div1");
+				div1.setAttribute("data-att2", "value2");
+				
+				var img1 = document.querySelector("#img1");
+				//img1.setAttribute("src", "BigBuck.png")
+				img1.src = "BigBuck.png";
+				img1.width = 100;
+				img1.height = 100;
+				
+				var value = parseInt("10");
+				alert("알립니다.");
+			}
+		</script>
+	</head>
+	
+	<body>
+		<button onclick="fun1()">속성값 읽기</button>
+		<button onclick="fun2()">속성 추가</button>
+		<hr/>
+		
+		<div id="div1" data-att1="value1"></div>
+		
+		<img id="img1"/>
+	</body>
+</html>

@@ -1,0 +1,10 @@
+INDEX VERSION 1.127+C:\kosaswcourse\workspace-web\.metadata\.plugins\org.eclipse.jdt.core
+2387880135.index
+2671809099.index
+3172985856.index
+1272135970.index
+1235661979.index
+1843721912.index
+2705353442.index
+660001026.index
+763314635.index

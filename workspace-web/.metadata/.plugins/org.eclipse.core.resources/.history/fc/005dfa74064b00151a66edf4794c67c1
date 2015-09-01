@@ -1,0 +1,37 @@
+package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import dto.Product;
+
+
+
+public class ProductDao {
+	private Connection conn;
+	
+	public ProductDao(Connection conn) {
+		this.conn = conn;
+	}
+	public Integer insert(Product product) throws SQLException {
+		Integer pk = null;
+		String sql = "insert into products (product_no, product_name, product_price, product_info) values(?, ?, ?, ?)";
+		PreparedStatement pstmt = conn.prepareStatement(sql, new String[] {"product_no"});
+		pstmt.setInt(1, product.getProduct_no());
+		pstmt.setString(2, product.getProduct_name());
+		pstmt.setInt(3, product.getProduct_price());
+		pstmt.setString(4, product.getProduct_info());
+		int rows = pstmt.executeUpdate();
+		if(rows==1) {
+			ResultSet rs = pstmt.getGeneratedKeys();
+			if(rs.next()) {
+				pk = rs.getInt(1);
+			}
+			rs.close();
+		}
+		pstmt.close();
+		return pk;
+	}
+}

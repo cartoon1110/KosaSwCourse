@@ -1,0 +1,258 @@
+@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
+@import url(http://fonts.googleapis.com/css?family=Shadows+Into+Light);
+@import url(http://fonts.googleapis.com/css?family=Handlee);
+
+*{
+	margin:0; padding:0;
+}
+
+ol,ul{
+	list-style:none;
+}
+
+a{ 
+	outline:0; text-decoration: none; color:#555;
+
+}
+
+img{
+	border:0;
+}
+
+body{
+	font:12px/1.6 arial; color:#555;
+	display:flex;
+}
+
+
+
+/* 본문css */
+
+/* 배경화면 */
+#wrap{
+	position:fixed; top:0px; left:-100px; width:100%; height:100%; min-width:1400px; 
+	min-height:780px; background-image:url(../img/board_image.png); background-size:cover;	
+}
+
+#wrap1{
+	position:fixed; top:0px; left:-100px; width:100%; height:100%; min-width:1400px; 
+	min-height:780px; background-image:url(../img/login_image.png); background-size:cover;	
+}
+
+#wrap2{
+	position:fixed; top:0px; left:-100px; width:100%; height:100%; min-width:1400px; 
+	min-height:780px; background-image:url(../img/swim_image1.png); background-size:cover;	
+}
+
+/* 메뉴 */
+.menu {
+	position: fixed;
+	top: 50%;
+	left:0px;
+	margin-top:-230px;
+	z-index:13;
+	
+}
+
+.menu a{
+	display:block; width:200px; height:130px; font-family:'Indie Flower', cursive;
+	font-size:25px; color: black; text-align: right; overflow:hidden;
+	box-sizing:border-box; opacity:0.8; transition: all 0.5s;
+}
+
+.menu a:hover{
+	color:brown;
+	transfrom:scale(1.1);
+}
+
+/* sns 아이콘 */
+#sns{
+	position: fixed; top:40px; right:80px; z-index:14;
+}
+#sns li{
+	float: left; margin-left:20px;
+}
+#sns li img{
+	opacity:0.5; transition: all 0.5s;
+}
+#sns li img:hover{
+	transform:scale(1.5); opacity:1;
+}
+
+/* 제목 */
+h1{ position: absolute; top: 30px; left:440px; width:auto; font-size:100px; 
+font-family: 'Shadows Into Light', cursive; animation: ani1 5s linear infinite;}
+
+@keyframes ani1{
+	0%{color:red;}
+	20%{color:orange; }
+	40%{color:yellow;}
+	60%{color:green;}
+	80%{color:blue;}
+	100%{color:purple;}
+
+}
+
+/* 시계 */
+#side {
+	position:absolute; top:100px; right:100px; width:auto; height:auto;
+	overflow:hidden; font-size:40px; line-height:4.6;
+	box-sizing: border-box; padding-left:50px; font-family: 'Shadows Into Light', cursive;
+}
+#side span{
+	position:relative; z-index:5; 
+}
+
+
+/* 메인화면 멋진 물줄기 */
+.p21{position:absolute; bottom:-480px; right:-180px;}
+.p22{position:absolute; bottom:-40px; right:130px; }
+
+
+/* 로그인화면 방울방울 */
+.ww1 {
+	width: 50px;
+	height: auto;
+	animation: ani3 6s linear infinite;
+	position: absolute;
+	right: 29%;
+}
+
+.ww2 {
+	width: 50px;
+	height: auto;
+	animation: ani4 5s linear infinite;
+	position: absolute;
+	right: 30%;
+}
+.ww3 {
+	width: 50px;
+	height: auto;
+	animation: ani5 7s linear infinite;
+	position: absolute;
+	right: 28%;
+}
+	
+@keyframes ani3{
+	0%{top:330px;}
+	100%{top:200px;}
+}
+@keyframes ani4{
+	0%{width:0; height:0;top:450px;}
+	10%{top:450px;}
+	100%{top:200px;}
+}
+@keyframes ani5{
+	0%{width:0; height:0;top:450px;}
+	10%{width:0; height:0; top:450px;}
+	20%{top:450px;}
+	100%{top:200px;}
+}
+
+
+/* 로그인화면 위치 */
+#login{
+	position: absolute;
+	top:42%; left:45%;
+	
+}
+
+.user_id {
+	font-size:20px;
+	font-family:'Indie Flower', cursive;
+}
+
+.user_pw{
+	font-size:20px;
+	font-family:'Indie Flower', cursive;
+}
+
+
+
+/* 로그인 한 아이디의 게시판 확인 */
+#check{
+	font-size:20px;
+	font-family:'Indie Flower', cursive;
+}
+
+
+/* 게시판 화면 */
+#wrapper{
+	position: absolute;
+	top:23%; left:28%;
+}
+
+#write1{
+	font-family: 'Handlee', cursive;
+	font-size: 20px;
+	color:black;
+}
+
+#main {
+	width: 700px;
+	margin: 0 auto;
+	padding-top: 30px;
+	overflow: hidden;
+}
+
+#content {
+	float: left;
+	width: 650px;
+	margin-left: 40px;
+}
+
+
+/* 게시판 안의 내용 설정 */
+
+h3 {
+	font-size: 14px;
+	line-height: 0.9;
+	text-align: left;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+
+.m_form input {
+	width: 565px;
+	height: 20px;
+	padding: 5px;
+	border-radius: 3px;
+	transition: padding .25s;
+	background-color: #ffffff;
+	border: 1px solid #555555;
+	box-shadow: 0 0 3px #aaaaaa;
+}
+
+.submit {
+	background-color: #0000a0;
+	border-radius: 5px;
+	padding: 6px 20px;
+	border: 1px solid black;
+	color: #ffffff;
+	font-weight: bold;
+	text-align: center;
+	position: ralative;
+	top: 100px;
+}
+
+.submit:hover {
+	cursor: pointer;
+}
+
+
+/* 기본 스타일 외에 추가된 내용 */
+
+.right {
+	position: static;
+	text-align: right;
+}
+
+.reply {
+	border: 1px solid #0000a0;
+	padding: 5px 20px;
+	background: #FFFFE0;
+}
+
+#accordion{
+	overflow:scroll;
+}

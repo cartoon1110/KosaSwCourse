@@ -1,0 +1,39 @@
+package controller;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class MemberController {
+
+	public void handle(HttpServletRequest request, HttpServletResponse response) {
+		String action=request.getParameter("action");
+		
+		switch(action){
+		case "joinForm": joinForm();break;
+		case "join": join();break;
+		case "loginForm": loginForm();break;
+		case "login": login();break;
+		
+		}
+		
+	}
+
+	public void joinForm(){
+		
+		
+	}
+	
+	public void join(){
+		
+	}
+	
+	public void loginForm(){
+		
+		
+	}
+	
+	public void login(){
+		
+		
+	}
+}

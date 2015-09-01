@@ -1,0 +1,21 @@
+package controller;
+
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class BoardController {
+
+	public void handle(HttpServletRequest request, HttpServletResponse response) {
+		String action=request.getParameter("action");
+		switch(action){
+		case "list": list(request,response);break;
+		}
+	}
+
+	private void list(HttpServletRequest request, HttpServletResponse response) {
+		RequestDispatcher rd=request.getRequestDispatcher("/mvc/");
+		
+	}
+
+}

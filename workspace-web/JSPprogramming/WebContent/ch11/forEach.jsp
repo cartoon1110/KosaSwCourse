@@ -1,0 +1,62 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+
+	<body>
+		forEach.jsp
+		<hr/>
+
+		<c:forEach var="i" begin="0" end="9">
+			${ i} <br/>
+		</c:forEach>
+		<hr/>
+		
+		
+		<c:forEach var="i" begin="0" end="9" step="2">
+			${ i} <br/>
+		</c:forEach>
+		
+		<hr/>
+		<%
+		List<String> names=new ArrayList<String>();
+		names.add("장자몽");
+		names.add("덕이");
+		names.add("망나니");
+		
+		request.setAttribute("names",names);
+		%>
+		
+		
+		<c:forEach var="i" items="${names}" varStatus="status">
+			first: ${status.first},
+			last: ${status.last },
+			index: ${status.index}, 
+			count: ${status.count},
+			i:${i} <br/>
+		</c:forEach>
+		
+		<c:forEach var="i" items="${names}" varStatus="status">
+			<c:if test="${status.first }">
+				<table>
+					<tr>
+						<th>첫번째는 장자모옹~</th>
+					</tr>
+			</c:if>
+					<tr>
+						<td>${i}</td>
+					</tr>
+			<c:if test="${status.last}">
+				</table>
+			</c:if>
+		</c:forEach>
+	
+	</body>
+</html>

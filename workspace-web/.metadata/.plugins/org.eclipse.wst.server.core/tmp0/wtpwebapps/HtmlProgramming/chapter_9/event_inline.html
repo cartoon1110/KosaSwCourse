@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			function eventHandler(event) {
+				alert("btn1 이벤트 처리");
+				console.log("-------------------");
+				console.log(event.clientX);
+				console.log(event.clientY);
+			}
+			
+			window.onload = function() {
+				var btn2 = document.querySelector("#btn2");
+				btn2.onclick = function() {
+					alert("btn2 이벤트 처리");
+				};
+				
+				var btn3 = document.querySelector("#btn3");
+				btn3.addEventListener("click", function() {
+					alert("btn3 이벤트 처리");
+				});
+			};
+		</script>
+	</head>
+	
+	<body>
+		<!-- 태그의 이벤트 속성을 이용하는 방법 -->
+		<button id="btn1" onclick="eventHandler(event)">버튼</button>
+		
+		<!-- 객체의 이벤트 속성을 이용하는 방법 -->
+		<button id="btn2">버튼</button>
+		
+		<!-- addEventListener() 메소드를 이용하는 방법 -->
+		<button id="btn3">버튼</button>
+	</body>
+</html>

@@ -1,0 +1,24 @@
+/*
+[step04.css] 
+.inner-menu {
+	...
+	display: none;
+}
+*/
+
+#main-section {
+    float: left;
+    width: 630px;
+    /* height: 500px; */
+}
+
+#main-aside {
+    float: right;
+    width: 200px;
+    /* height: 500px; */
+    border-left: 1px solid #C8C8C8;
+}
+
+#main-footer {
+	clear: both
+}

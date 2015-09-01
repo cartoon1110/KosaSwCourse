@@ -1,0 +1,65 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page import="java.util.*, dto.*" %>
+
+<%List<Board> list=(List<Board>)request.getAttribute("list"); %>
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			table {
+				width: 100%;
+				border-collapse: collapse;
+				font-size: small;
+			}
+			
+			table, th, td{
+				border: 1px solid black;
+				text-align: center;
+			}
+			th{
+				background-color: orange;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h4>게시물 목록</h4>
+		
+		<table>
+			<tr>
+				<th style="width:50px">번호</th>
+				<th>제목</th>
+				<th style="width:60px">글쓴이</th>
+				<th style="width:80px">날짜</th>
+				<th style="width:60px">조회수</th>
+			</tr>
+			<%for(Board board: list){ %>
+			<tr>
+				<td><%=board.getNo() %></td>
+				<td><%=board.getTitle() %></td>
+				<td><%=board.getWriter() %></td>
+				<td><%=board.getDate() %></td>
+				<td><%=board.getHitcount() %></td>
+			</tr>
+			<%} %>
+		
+		</table>
+		
+		<div id="buttonGroup">
+			<a href="write_form.jsp">
+				<img src="../common/images/board/write.gif"/>
+			</a>
+		</div>
+	</body>
+</html>
+
+
+
+
+
+
+
+

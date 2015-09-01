@@ -1,0 +1,21 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page import="com.oreilly.servlet.*, com.oreilly.servlet.multipart.*" %>
+
+
+<%
+DefaultFileRenamePolicy policy=new DefaultFileRenamePolicy();
+String saveFilePath="C:/Temp";
+MultipartRequest mr=new MultipartRequest(request, saveFilePath, 1024*1024*5, "utf-8", policy);
+
+String title=mr.getParameter("title");
+
+String writer=mr.getParameter("writer");
+
+String content=mr.getParameter("content");
+
+String ofn=mr.getOriginalFileName("attach");
+String fyn=mr.getFilesystemName("attach");
+
+
+String contentType=mr.getContentType("attach");
+%>

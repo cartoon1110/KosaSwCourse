@@ -1,0 +1,22 @@
+.inner-menu {
+	position: absolute;
+	top: 40px;
+	left: 0px;
+	width: 100%;
+	background: white;
+	box-shadow: 0 2px 6px rgba(5, 5, 5, 0.9);
+	text-align: center;
+	display: none;
+}
+
+.inner-menu-item > a {
+	display: block;
+	padding: 5px 10px;
+	color: black;
+	text-decoration: none;
+}
+
+.inner-menu-item > a:hover {
+	background: black;
+	color: white;
+}

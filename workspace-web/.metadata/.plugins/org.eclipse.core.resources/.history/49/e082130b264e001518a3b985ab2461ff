@@ -1,0 +1,44 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ page import="java.util.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+<!DOCTYPE html >
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	
+
+	<body>
+		forEach.jsp
+		<hr/>
+
+		<c:forEach var="i" begin="0" end="9">
+			${ i} <br/>
+		</c:forEach>
+		<hr/>
+		
+		
+		<c:forEach var="i" begin="0" end="9" step="2">
+			${ i} <br/>
+		</c:forEach>
+		
+		<hr/>
+		<%
+		List<String> names=new ArrayList<String>();
+		names.add("장자몽");
+		names.add("덕이");
+		names.add("망나니");
+		
+		request.setAttribute("names",names);
+		%>
+		
+		<c:forEach var="i" items="${names}" varStatus="status">
+			status.index: ${status.index}, 
+			status.count: ${status.count},
+			i:${i} <br/>
+		</c:forEach>
+	
+	</body>
+</html>

@@ -1,0 +1,46 @@
+* {
+	margin:0px;
+	padding: 0px;
+	font-family: '맑은 고딕', 'Malgun Gothic', Gothic, sans-serif;
+}
+
+body {
+    width: 960px;
+    margin: 0 auto;
+    background: #E6E6E6;
+}
+
+#page-wrapper {
+	background: white;
+	margin: 40px;
+	padding: 10px 20px;
+	border-radius: 5px;
+	box-shadow: 0px 2px 6px rgba(100, 100, 100, 0.3);
+}
+
+#main-header { 
+	/* height: 140px; */
+}
+
+#main-navigation {
+	border-top: 1px solid #C8C8C8;
+	border-bottom: 1px solid #C8C8C8;
+	height: 40px;
+}
+
+#content { 
+	/* height: 500px; */
+}
+
+#main-footer { 
+	border-top: 1px solid #C8C8C8;
+	height: 50px;
+}
+
+
+
+
+
+
+
+

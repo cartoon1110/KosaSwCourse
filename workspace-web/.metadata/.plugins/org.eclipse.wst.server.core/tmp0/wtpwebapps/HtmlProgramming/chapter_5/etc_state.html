@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>회원 수정</title>
+		<style type="text/css">
+			/* input[disabled] {
+				background: yellow;
+			} */
+			
+			input:disabled {
+				background: yellow;
+			}
+			
+			input:focus {
+				background: green;
+			}
+		</style>
+	</head>
+	
+	<body>
+		<h2>수정 불가능</h2>
+		아이디: <input type="text" disabled="disabled" value="angel"/>
+		<br/>
+		이름: <input type="text" disabled="disabled" value="가람이"/>
+		<h2>수정 가능</h2>
+		비밀번호: <input type="text" value="12345"/>
+		<br/>
+		이메일: <input type="email" value="angel@naver.com"/>
+	</body>
+</html>

@@ -1,0 +1,13 @@
+<%@ page contentType="text/html; charset=UTF-8"%>
+<%@ pagw import="java.util.*" %>
+
+<%
+List<String> titles=new ArrayList<String>();
+List<String> images=new ArrayList<String>();
+for(int i=1; i<=10; i++){
+	titles.add("제목"+i);
+	images.add("miniroombg"+i+".gif");
+}
+int adNo=new Random().nextInt(10);
+%>
+

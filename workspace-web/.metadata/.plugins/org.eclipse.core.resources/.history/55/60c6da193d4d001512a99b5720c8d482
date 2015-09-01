@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+	<!-- **************************************************** -->
+	<!-- 서블릿 등록 -->
+	<servlet>
+		<!-- 서블릿 별명 -->
+		<servlet-name>HelloWorldServlet2</servlet-name>
+		<!-- 서블릿 클래스 -->
+		<servlet-class>servlet.HelloWorldServlet2</servlet-class>
+	</servlet>
+  
+  	<!-- 서블릿 URL 매핑 -->
+	<servlet-mapping>
+		<!-- 실행할 서블릿 별명 -->
+		<servlet-name>HelloWorldServlet2</servlet-name>
+		<!-- 클라이언트가 요청할 URL -->
+		<url-pattern>/HelloWorldServlet2</url-pattern>
+	</servlet-mapping>
+	<!-- **************************************************** -->
+	<servlet>
+		<servlet-name>HelloWorldServlet3</servlet-name>
+		<servlet-class>servlet.HelloWorldServlet3</servlet-class>
+		<!-- 웹앱이 배치되는 순간 서블릿 객체를 생성하기 위함 -->
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>HelloWorldServlet3</servlet-name>
+		<url-pattern>/HelloWorldServlet3</url-pattern>
+	</servlet-mapping>
+	<!-- **************************************************** -->
+	<servlet>
+		<servlet-name>HelloWorldServlet4</servlet-name>
+		<servlet-class>servlet.HelloWorldServlet4</servlet-class>
+		<init-param>
+			<param-name>greeting</param-name>
+			<param-value>안녕하세요.</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>HelloWorldServlet4</servlet-name>
+		<url-pattern>/HelloWorldServlet4</url-pattern>
+	</servlet-mapping>
+</web-app>

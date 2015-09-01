@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			#out {
+				display: none;
+			}	
+		</style>
+		<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#login").click(function(){
+					var mid=$("#mid").val();
+					var mpass=$("#mpass").val();
+					$.ajax({
+						url: "ajax05.jsp",
+						method : "POST",
+						data: {"mid":mid, "mpass":mpass},
+						success:function(data){
+							var result = data.trim();
+							console.log(result);
+							if(result == "success"){
+								$("#in").hide();
+								$("#out").show();
+								$("#loginMid").html(mid);
+								$("#mid").val("");
+								$("#mpass").val("");
+							}else if(result =="fail_mid"){
+								alert("아이디가 존재x");
+							}else if(result =="fail_mpass"){
+								alert("비번 틀림");
+							}
+						}
+				});
+			});	
+				$("#logout").click(function(){
+					$("#in").show();
+					$("#out").hide();
+					$("#loginMid").html("xxx");
+				});
+			});	
+		</script>
+	</head>
+	
+	<body>		
+		<div id="login" style="width:200px; height:150px; border: 1px solid black">
+				<div id="in">
+					ID: <input id="mid" type="text" name="mid"/><br/>
+					PASS: <input id="mpass" type="password" name="mpass"/><br/>
+					<input id="login" type="button" value="로그인"/>
+					<input  id="join" type="button" value="회원가입"/>
+				</div>
+				<div id="out" style="height: 100%">
+					<table style="width:100%; height: 100%">
+						<tr>
+							<td style="text-align: center; vertical-align:middle;">
+								<span id="loginMid">xxx</span>님, 로그인 함 <br/>
+								<input id="logout" type="button" value="로그아웃">
+							</td>
+						</tr>
+					</table>
+				</div>
+		</div>
+		<hr/>
+		주요내용
+		
+	
+	</body>
+</html>

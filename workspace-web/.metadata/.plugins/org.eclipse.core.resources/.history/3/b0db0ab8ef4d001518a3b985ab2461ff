@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			#out{
+				display: none;
+			}
+		</style>
+		<script src="jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+			
+				});
+
+
+			});
+		</script>
+	</head>
+	<body>
+		<hr/>
+		<div id="log" style="width:300px;height:300px; border:1px solid black">
+			<div id="in">
+				ID: <input type="text" name="mid"/><br/>
+				Pass: <input type="password" name="mpass"/><br/>
+				<input id="login" type="button" value="로그인"/>
+				<input id="join" type="button" value="회원가입"/>
+			</div>
+			<div id="out">
+				<span>xxx</span>님, 레옹이 되셨습니다.<br/>
+				<input id="logout" type="button" value="로그아웃"/> 
+			</div>
+		</div>	
+		<hr/>
+		주요 내용.....
+
+	</body>
+</html></html>

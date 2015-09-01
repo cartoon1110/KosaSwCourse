@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			window.onload = function() {
+				//var aTag = document.getElementById("button");
+				var aTag = document.querySelector("#button");
+				aTag.onclick = function() {
+					return false;
+				};
+				
+				var form1 = document.querySelector("#form1");
+				form1.onsubmit = function() {
+					var mid = document.querySelector("#mid");
+					if(mid.value == "") {
+						return false;
+					}
+				};
+			};
+		</script>
+	</head>
+	
+	<body>
+		<a id="button" href="http://www.naver.com">버튼</a>
+		
+		<form id="form1" action="http://www.naver.com">
+			아이디: <input id="mid" type="text" name="mid"/>
+			<input type="submit" value="전송"/>
+		</form>
+	</body>
+</html>

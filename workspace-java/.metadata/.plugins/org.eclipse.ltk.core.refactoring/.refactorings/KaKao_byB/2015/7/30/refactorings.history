@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename package &apos;sasdf&apos; to &apos;sec07.exam03_chatting&apos;&#x0D;&#x0A;- Original project: &apos;ddd&apos;&#x0D;&#x0A;- Original element: &apos;ddd/src/sasdf&apos;&#x0D;&#x0A;- Renamed element: &apos;ddd/src/sec07.exam03_chatting&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename package &apos;sasdf&apos;" flags="589830" hierarchical="false" id="org.eclipse.jdt.ui.rename.package" input="/src&lt;sasdf" name="sec07.exam03_chatting" qualified="false" references="true" stamp="1437718908586" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			#result1, #result2{
+				float: left;
+				margin: 10px;
+			}
+		</style>
+		<script src="jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#btn1").on("click", function(){
+					$.ajax({
+						url: "ajax04.jsp",
+						success: function(data){
+							$("#result1").html(data);
+						}
+					
+					});
+				});
+				
+				$("#btn2").on("click", function(){
+					$("#result2").load("ajax04.jsp");
+					
+				});
+
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn1">ajax() 이용</button>
+		<button id="btn2">load() 이용</button>
+		<hr/>
+		<div id="result1" style="width:300px;height:300px; border:1px solid black">
+		</div>	
+		
+		<div id="result2" style="width:300px;height:300px; border:1px solid black">	
+		</div>
+	</body>
+</html></html>

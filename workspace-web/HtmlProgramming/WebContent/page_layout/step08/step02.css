@@ -1,0 +1,22 @@
+#main-header { 
+	/*[step01.css] height: 140px; 주석처리 */
+	padding: 40px 50px;
+}
+
+.master-title { 
+    font-size: 30px; 
+    color: #181818;
+}
+.master-description {
+    font-size: 15px; 
+    font-weight: 500;
+    color: #383838;
+}
+
+
+
+
+
+
+
+

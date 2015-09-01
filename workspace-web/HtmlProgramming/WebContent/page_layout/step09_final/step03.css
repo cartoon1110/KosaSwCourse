@@ -1,0 +1,21 @@
+.pull-left { float: left; }
+
+li { list-style: none; }
+
+.outer-menu-item {
+	float: left;
+	position: relative;	
+}
+
+.outer-menu-item:hover {
+    background: black;
+    color: white
+}
+
+.menu-title {
+	display: block;
+	height: 30px; 
+	line-height: 30px; 	/* 수직 정렬 */
+	text-align: center; /* 수평 정렬 */
+	padding: 5px 20px;
+}

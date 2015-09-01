@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script src="jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#btn1").on("click", funtion(){
+					$.ajax("ajax01.jsp",{
+						success: function(){
+							console.log("응답이 잘 왓습다");
+						}
+					});
+					
+				$.ajax({
+					url: "ajax01.jsp",
+					success: function(){
+						console.log("메롱2가 잘왔습니다.");
+					}
+				});
+				console.log("계속 실행");
+				
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<button id="btn1">기본 AJAX통신</button>
+		<hr/>
+		<div id="result1" style="width:300px;height:100px; border:1px solid black">
+			
+		</div>
+	</body>
+</html>

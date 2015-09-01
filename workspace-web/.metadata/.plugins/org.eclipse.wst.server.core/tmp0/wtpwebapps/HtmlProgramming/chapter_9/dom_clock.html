@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<script type="text/javascript">
+			window.onload = function() {
+				var clock = document.querySelector("#clock");
+				
+				setInterval(function() {
+					var now = new Date();
+					clock.innerHTML = now.getHours() + ":" + now.getMinutes() + ":" + now.getSeconds();
+				}, 1000);
+			};
+		</script>
+	</head>
+	
+	<body>
+		<h1 id="clock"></h1>
+	</body>
+</html>

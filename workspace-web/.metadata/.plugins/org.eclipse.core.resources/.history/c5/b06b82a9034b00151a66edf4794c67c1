@@ -1,0 +1,40 @@
+package dto;
+
+public class Carts {
+	private int cart_no;
+	private int cart_amount;
+	private String cart_totalprice;
+	private String member_id;
+	private int product_no;
+	public int getCart_no() {
+		return cart_no;
+	}
+	public void setCart_no(int cart_no) {
+		this.cart_no = cart_no;
+	}
+	public int getCart_amount() {
+		return cart_amount;
+	}
+	public void setCart_amount(int cart_amount) {
+		this.cart_amount = cart_amount;
+	}
+	public String getCart_totalprice() {
+		return cart_totalprice;
+	}
+	public void setCart_totalprice(String cart_totalprice) {
+		this.cart_totalprice = cart_totalprice;
+	}
+	public String getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(String member_id) {
+		this.member_id = member_id;
+	}
+	public int getProduct_no() {
+		return product_no;
+	}
+	public void setProduct_no(int product_no) {
+		this.product_no = product_no;
+	}
+
+}

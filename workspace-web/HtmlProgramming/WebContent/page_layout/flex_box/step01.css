@@ -1,0 +1,47 @@
+* {
+	margin:0px;
+	padding: 0px;
+}
+
+body {
+	width: 500px;
+	margin: 0px auto;
+	background: #e6e6e6;
+}
+
+.fullscreen {
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.top {
+  background-color: lightgray;
+  text-align: center;
+}
+
+.middle {
+  flex: 1;
+  display: flex;
+  text-align: center;
+}
+
+.bottom {
+  background-color: lightgray;
+  text-align: center;
+}
+
+.left {
+	background-color: darkgray;
+	width: 100px;
+}
+
+.center {
+  flex: 1;
+  overflow-y: scroll; 
+}
+
+.right {
+	background-color: darkgray;
+	width: 100px;	
+}
+

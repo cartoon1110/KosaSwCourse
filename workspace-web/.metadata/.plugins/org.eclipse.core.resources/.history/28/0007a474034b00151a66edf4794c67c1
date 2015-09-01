@@ -1,0 +1,12 @@
+package dao;
+
+import java.sql.Connection;
+
+public class CartsDao {
+	private Connection conn;
+	
+	public CartsDao(Connection conn) {
+		this.conn = conn;
+	}
+	
+}

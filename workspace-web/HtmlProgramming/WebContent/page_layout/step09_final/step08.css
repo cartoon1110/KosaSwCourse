@@ -1,0 +1,22 @@
+/*
+[step06.css]
+#main-aside {
+    float: right;
+    width: 200px;
+    height: 500px; <-- 제거
+    border-left: 1px solid #C8C8C8; <-- 제거
+}
+*/
+
+.aside-list { padding: 10px 0 30px 0; }
+.aside-list > h3 {
+    font-size: 15px;
+    font-weight: 600;
+}
+.aside-list li a {
+    margin-left: 8px;
+    font-size: 13px;
+    color: #6C6C6C;
+    text-decoration: none;
+}
+

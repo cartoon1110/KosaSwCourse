@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="0" key="org.eclipse.egit.ui.internal.clone.GitSelectWizardPageWizardSel"/>
+	<item value="633" key="DIALOG_WIDTH"/>
+	<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+	<item value="true" key="CommitDialog.showUntracked"/>
+	<item value="537" key="DIALOG_HEIGHT"/>
+	<item value="332" key="DIALOG_X_ORIGIN"/>
+	<item value="142" key="DIALOG_Y_ORIGIN"/>
+	<list key="RepositorySelectionPage.UsedUris">
+		<item value="https://github.com/cartoon1110/KosaSwCourse.git"/>
+		<item value="https://github.com/blueskii/KosaSwCourse.git"/>
+	</list>
+	<list key="CommitDialog.authorValues">
+		<item value="cartoon1110 &lt;cartoon1110@hanmail.net&gt;"/>
+		<item value="Administrator &lt;Administrator@M80319&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="cartoon1110 &lt;cartoon1110@hanmail.net&gt;"/>
+	</list>
+	<section name="org.eclipse.egit.ui.internal.dialogs.ResetTargetSelectionDialog.dialogBounds">
+		<item value="538" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="749" key="DIALOG_HEIGHT"/>
+		<item value="379" key="DIALOG_X_ORIGIN"/>
+		<item value="8" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="GitImportWizard">
+		<item value="true" key="GitProjectsImportPage.STORE_NESTED_PROJECTS"/>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
+		<item value="666" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="457" key="DIALOG_HEIGHT"/>
+		<item value="315" key="DIALOG_X_ORIGIN"/>
+		<item value="196" key="DIALOG_Y_ORIGIN"/>
+		<list key="sashWeights">
+			<item value="600"/>
+			<item value="400"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
+		<item value="738" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="294" key="DIALOG_HEIGHT"/>
+		<item value="279" key="DIALOG_X_ORIGIN"/>
+		<item value="304" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.egit.ui.COMMIT_DIALOG_SECTION">
+		<item value="712" key="DIALOG_WIDTH"/>
+		<item value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕" key="DIALOG_FONT_NAME"/>
+		<item value="640" key="DIALOG_HEIGHT"/>
+		<item value="292" key="DIALOG_X_ORIGIN"/>
+		<item value="74" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+	</section>
+</section>

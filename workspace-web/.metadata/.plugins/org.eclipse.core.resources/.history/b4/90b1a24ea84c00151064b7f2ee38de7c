@@ -1,0 +1,72 @@
+@charset "utf-8";
+
+*{
+	margin: 0;
+	outline: 0; 
+	border: 0;
+	padding: 0;
+	font-size:100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+
+body { 
+	font: 12px/1.5 "나눔고딕", "맑은고딕", "Helvetica Neue", Helvetica, Verdana, Arial, Sans-Serief; 
+	color: #323232; 
+}
+
+ol, ul { 
+	list-style: none; 
+}
+
+blockquote, q { 
+	quotes: none;
+}
+
+br, hr { 
+	display: none; 
+}
+
+h1, h2, h3, h4, h5, h6 { 
+	font-weight: normal; 
+	color: #111; 
+}
+
+h1 { 
+	font-size: 36px; 
+	line-height: 1; 
+	margin-bottom: 0.5em; 
+}
+
+h2 { 
+	font-size: 24px; 
+	margin-bottom: 0.75em;
+}
+
+h3 { 
+	font-size: 18px; 
+	line-height: 1; 
+	margin-bottom: 1em;
+}
+
+h4 { 
+	font-size: 14px; 
+}
+
+h5 { 
+	margin-bottom: 1.5em; 
+}
+
+h5, h6 { 
+	font-weight: bold; 
+}
+
+h1 img, h2 img, h3 img,
+h4 img, h5 img, h6 img {
+  margin: 0;
+}

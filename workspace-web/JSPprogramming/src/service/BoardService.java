@@ -1,0 +1,155 @@
+package service;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import dao.BoardDao;
+import dao.ConnectionManager;
+import dto.Board;
+
+public class BoardService {
+	public void add(Board board) {
+		Connection conn = null;
+		try {
+			conn = ConnectionManager.getConnection();
+			BoardDao boardDao = new BoardDao(conn);
+			boardDao.insert(board);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+	}
+	
+	public List<Board>  getPage(int pageNo, int rowsPerPage) {
+		List<Board> list = new ArrayList<Board>();
+		Connection conn = null;
+		try {
+			conn = ConnectionManager.getConnection();
+			BoardDao boardDao = new BoardDao(conn);
+			list = boardDao.selectByPage(pageNo, rowsPerPage);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+		return list;
+	}
+	
+	public Board getBoard(int boardNo) {
+		Board board = null;
+		Connection conn = null;
+		try {
+			conn = ConnectionManager.getConnection();
+			BoardDao boardDao = new BoardDao(conn);
+			board = boardDao.selectByPk(boardNo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+		return board;
+	}
+	
+	public void modify(Board board) {
+		Connection conn = null;
+		try {
+			conn = ConnectionManager.getConnection();
+			BoardDao boardDao = new BoardDao(conn);
+			boardDao.update(board);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+	}
+	
+	public void remove(long boardNo) {
+		Connection conn = null;
+		try {
+			conn = ConnectionManager.getConnection();
+			BoardDao boardDao = new BoardDao(conn);
+			boardDao.delete(boardNo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+	}
+	
+	public void addHitcount(long boardNo) {
+		Connection conn = null;
+		try {
+			conn = ConnectionManager.getConnection();
+			BoardDao boardDao = new BoardDao(conn);
+			boardDao.updateHitcount(boardNo);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+	}	
+	
+	//����¡ ���� �ʵ�� �޼ҵ�---------------------
+	
+	private int rowsPerPage = 10;
+	private int pagesPerGroup = 3;
+	
+	public int getRowsPerPage() { 
+		return rowsPerPage; 
+	}
+	
+	public int getGroupNo(int pageNo) {
+		return (pageNo-1)/pagesPerGroup + 1;
+	}
+	
+	public int getStartPageNo(int groupNo) {
+		return (groupNo-1)*pagesPerGroup + 1;
+	}
+	
+	public int getEndPageNo(int groupNo) {
+		if(getTotalGroupNo()!=groupNo){
+			return getStartPageNo(groupNo)+pagesPerGroup-1;
+		}
+		else{
+			return getTotalPageNo();
+		}
+	}
+	
+	public int getTotalPageNo() {
+		int totalPageNo = 1;
+		Connection conn = null;
+		try {
+			conn = ConnectionManager.getConnection();
+			BoardDao boardDao = new BoardDao(conn);
+			int rows = boardDao.selectCount();
+			totalPageNo = rows / rowsPerPage;
+			if(rows%rowsPerPage != 0) {
+				totalPageNo++;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			try { conn.close(); } catch (SQLException e) {}
+		}
+		return totalPageNo;
+	}
+	
+	public int getTotalGroupNo() {
+		int totalPageNo = getTotalPageNo();
+		int totalGroupNo = totalPageNo / pagesPerGroup;
+		if(totalPageNo%pagesPerGroup != 0) {
+			totalGroupNo++;
+		}
+		return totalGroupNo;
+	}
+}
+
+
+
+
+
+
+

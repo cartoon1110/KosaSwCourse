@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+		<style type="text/css">
+			#result1, #result2{
+				float: left;
+				margin: 10px;
+			}
+		</style>
+		<script src="jquery-1.11.3.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("#btn1").on("click", function(){
+					
+				});
+				
+				$("#btn2").on("click", function(){
+					
+					
+				});
+
+			});
+		</script>
+	</head>
+	<body>
+		<button id="btn1">GET 방식 통신</button>
+		<button id="btn2">POST 방식 통신</button>
+		<hr/>
+		<div id="result1" style="width:300px;height:300px; border:1px solid black">
+		</div>	
+		
+		<div id="result2" style="width:300px;height:300px; border:1px solid black">	
+		</div>
+	</body>
+</html></html>
