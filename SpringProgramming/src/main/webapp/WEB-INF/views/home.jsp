@@ -15,13 +15,17 @@
 				width: 960px;
 				margin: 0px auto;
 				background-color: #292929;
-				color: #FFFFFF;
+				color: #FFFFFF;				
+				background-image: url(resources/image/img4.jpg);
+				background-size: auto 100%;
+				background-repeat: no-repeat;
 			}	
 			/*------------------------------------*/				
 			#page {
 				height: 100vh;
 				display: flex;
 				flex-direction: column;
+
 			}
 			/*------------------------------------*/			
 			#header {
@@ -54,20 +58,16 @@
 				border-radius: 10px;
 				margin-left: 10px;
 				padding: 10px;
+
 			}
 			
-			#content1 #frontImage img {
-				width: 665px;
-				height: 175px;
-			}
-
 			/*------------------------------------*/
 			#content2 #menu {
 				width: 250px;
 				border: 3px solid #464646;	
 				border-radius: 10px;
 				padding: 10px;
-				overflow-y: scroll;
+				overflow-y: hidden;
 			}
 			
 			#content2 #menu ul {
@@ -113,63 +113,35 @@
 			
 			<div id="content1">
 				<div id="login"></div>
-				<div id="frontImage">
-					<img src="resources/image/frontImage.jpg"/>
+				<div id="frontImage" >
 				</div>
 			</div>
 			
 			<div id="content2">
 				<div id="menu">
 					<ul>
-						<h4>Chap01</h4>
+						<h4>Chap07</h4>
 						<li><a href="#">1절. XXXXXX</a></li>
 						<li><a href="#">2절. XXXXXX</a></li>
 						<li><a href="#">3절. XXXXXX</a></li>
 					</ul>
 					
 					<ul>
-						<h4>Chap02</h4>
-						<li><a href="#">1절. XXXXXX</a></li>
-						<li><a href="#">2절. XXXXXX</a></li>
-						<li><a href="#">3절. XXXXXX</a></li>
-					</ul>
-					
-					<ul>
-						<h4>Chap03</h4>
-						<li><a href="#">1절. XXXXXX</a></li>
-						<li><a href="#">2절. XXXXXX</a></li>
-						<li><a href="#">3절. XXXXXX</a></li>
-					</ul>
-					
-					<ul>
-						<h4>Chap04</h4>
-						<li><a href="#">1절. XXXXXX</a></li>
-						<li><a href="#">2절. XXXXXX</a></li>
-						<li><a href="#">3절. XXXXXX</a></li>
-					</ul>
-					
-					<ul>
-						<h4>Chap05</h4>
-						<li><a href="#">1절. XXXXXX</a></li>
-						<li><a href="#">2절. XXXXXX</a></li>
-						<li><a href="#">3절. XXXXXX</a></li>
-					</ul>
-					
-					<ul>
-						<h4>Chap06</h4>
-						<li><a href="#">1절. XXXXXX</a></li>
-						<li><a href="#">2절. XXXXXX</a></li>
-						<li><a href="#">3절. XXXXXX</a></li>
+						<h4>스프링 게시판</h4>
+						<li><a href="product/list" target="iframe">상품 게시판</a></li>
+						<li><a href="board/list" target="iframe">일반 게시판</a></li>
+						<li><a href="phote/list" target="iframe">사진 게시판</a></li>
+						<li><a href="file/list" target="iframe">자료 게시판</a></li>
 					</ul>
 				</div>
-				<div id="content">
-					<iframe name="iframe" height="100%" width="100%"></iframe>
-				</div>
-			</div>
-			
-			<div id="footer">
-				<h5>Your Name</h5>
+			<div id="content">
+				<iframe name="iframe" height="100%" width="100%"></iframe>
 			</div>
 		</div>
+			
+		<div id="footer">
+			<h5>덕이의 홈페이지</h5>
+		</div>
+	</div>
 	</body>
 </html>

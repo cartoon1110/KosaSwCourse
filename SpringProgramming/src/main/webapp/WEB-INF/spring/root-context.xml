@@ -3,6 +3,18 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<!-- Root Context: defines shared resources visible to all other web components -->
-		
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+			<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+			<property name="jdbcUrl" value="jdbc:mysql://blueskii.iptime.org:3306/team4"/>
+			<property name="user" value="team4"/>
+			<property name="password" value="123456"/>
+			<property name="maxPoolSize" value="3"/><!-- 기본값 15 -->
+			<property name="minPoolSize" value="1"/><!-- 기본값 3 -->
+			<property name="initialPoolSize" value="1"/><!-- 기본값 3 -->
+	</bean>
+	
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
 </beans>
