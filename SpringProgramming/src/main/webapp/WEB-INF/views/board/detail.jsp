@@ -96,7 +96,7 @@
 				</div>
 				
 				<div id="part1_2">
-					<img src="../uploadfiles/${board.filesystemName}" width="100px" height="100px"/>
+					<img src="${pageContext.request.contextPath}/resources/uploadfiles/${board.filesystemName}" width="100px" height="100px"/>
 					<button>다운로드</button>
 				</div>
 			</div>	

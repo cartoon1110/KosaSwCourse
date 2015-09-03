@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.mycompany.myapp.dto.Board;
 import com.mycompany.myapp.service.BoardService;
@@ -68,7 +69,7 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/board/write")
-	public String write(String title, String writer, String content){
+	public String write(String title, String writer, String content, MultipartFile attach){
 		Board board=new Board();
 		board.setTitle(title);
 		board.setContent(content);
