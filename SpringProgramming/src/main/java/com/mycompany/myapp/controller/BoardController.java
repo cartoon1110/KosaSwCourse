@@ -1,6 +1,11 @@
 package com.mycompany.myapp.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,7 +58,6 @@ public class BoardController {
 		model.addAttribute("pageNo", pageNo);
 		model.addAttribute("list", list);
 		
-		
 		return "board/list";
 	}
 
@@ -69,11 +73,35 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/board/write")
-	public String write(String title, String writer, String content, MultipartFile attach){
+	public String write(String title, String writer, String content, MultipartFile attach, HttpSession session){
+	
+		// 첨부 파일을 서버 하드디스크에 저장
+		ServletContext application = session.getServletContext();
+		String dirPath=application.getRealPath("/resources/uploadfiles");
+		String originalFileName=attach.getOriginalFilename();
+		String filesystemName=System.currentTimeMillis()+"-"+originalFileName;
+		String contentType=attach.getContentType();
+		
+		if(!attach.isEmpty()){
+		// 파일에 저장하기
+			try {
+				attach.transferTo(new File(dirPath+"/"+filesystemName));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		// 데이터 베이스에 게시물 정보 저장
 		Board board=new Board();
 		board.setTitle(title);
 		board.setContent(content);
 		board.setWriter(writer);
+		
+		if(!attach.isEmpty()){
+			board.setOriginalFileName(originalFileName);
+			board.setFilesystemName(filesystemName);
+			board.setContentType(contentType);
+		}
 		boardService.add(board);
 		return "redirect:/board/list";
 	}

@@ -119,12 +119,6 @@
 			
 			<div id="content2">
 				<div id="menu">
-					<ul>
-						<h4>Chap07</h4>
-						<li><a href="#">1절. XXXXXX</a></li>
-						<li><a href="#">2절. XXXXXX</a></li>
-						<li><a href="#">3절. XXXXXX</a></li>
-					</ul>
 					
 					<ul>
 						<h4>스프링 게시판</h4>

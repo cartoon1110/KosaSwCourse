@@ -14,6 +14,11 @@
 			}
 			td{
 				color:white;
+
+			}
+			table{
+				margin:120px;
+				border: 1px solid gray;
 			}
 		</style>
 	</head>

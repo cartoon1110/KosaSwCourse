@@ -18,6 +18,7 @@
 			table, th, td {
 				border: 1px solid white;
 				text-align: center;
+				height:25px;
 			}
 			th {
 				background-color: gray;
@@ -66,7 +67,7 @@
 			}
 			
 			#pager a.pageNo.selected{
-				color:aqua;
+				color:darkgray;
 			}
 			
 			.title{

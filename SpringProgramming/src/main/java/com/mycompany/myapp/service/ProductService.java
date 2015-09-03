@@ -35,40 +35,8 @@ public class ProductService {
 		productDao.delete(productNo);
 	}
 	
-	private int rowsPerPage = 10;
-	private int pagesPerGroup = 3;
-	
-	public int getRowsPerPage() { 
-		return rowsPerPage; 
-	}
-	
-	public int getGroupNo(int pageNo) {
-		return (pageNo-1)/pagesPerGroup + 1;
-	}
-	
-	public int getStartPageNo(int groupNo) {
-		return (groupNo-1)*pagesPerGroup + 1;
-	}
-	public int getEndPageNo(int groupNo) {
-		return getStartPageNo(groupNo) + pagesPerGroup - 1;
-	}
-	
-	public int getTotalPageNo() {
-		int totalPageNo = 1;
-		int rows = productDao.selectCount();
-		totalPageNo = rows / rowsPerPage;
-		if(rows%rowsPerPage != 0) {
-			totalPageNo++;
-		}
-		return totalPageNo;
-	}
-	
-	public int getTotalGroupNo() {
-		int totalPageNo = getTotalPageNo();
-		int totalGroupNo = totalPageNo / pagesPerGroup;
-		if(totalPageNo%pagesPerGroup != 0) {
-			totalGroupNo++;
-		}
-		return totalGroupNo;
+	public int getTotalProductNo(){
+		int rows=productDao.selectCount();
+		return rows;
 	}
 }
