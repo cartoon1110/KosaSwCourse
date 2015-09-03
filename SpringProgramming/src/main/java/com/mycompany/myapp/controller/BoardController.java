@@ -2,10 +2,9 @@ package com.mycompany.myapp.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -18,7 +17,7 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@RequestMapping("/board/list")
-	public String list(@RequestParam(defaultValue="1") int pageNo,HttpServletRequest request){
+	public String list(@RequestParam(defaultValue="1") int pageNo, Model model){
 		//페이징을 위한 변수 선언
 		int rowsPerPage=10;
 		int pagesPerGroup=5;
@@ -42,17 +41,16 @@ public class BoardController {
 		
 		//현재 페이지 게시물 리스트
 		List<Board> list=boardService.getPage(pageNo, rowsPerPage);
-		request.setAttribute("list", list);
 		
 		//View로 넘길 데이터
-		request.setAttribute("pagesPerGroup", pagesPerGroup);
-		request.setAttribute("totalPageNo", totalPageNo);
-		request.setAttribute("totalGroupNo", totalGroupNo);
-		request.setAttribute("groupNo", groupNo);
-		request.setAttribute("startPageNo", startPageNo);
-		request.setAttribute("endPageNo", endPageNo);
-		request.setAttribute("pageNo", pageNo);
-		request.setAttribute("list", list);
+		model.addAttribute("pagesPerGroup", pagesPerGroup);
+		model.addAttribute("totalPageNo", totalPageNo);
+		model.addAttribute("totalGroupNo", totalGroupNo);
+		model.addAttribute("groupNo", groupNo);
+		model.addAttribute("startPageNo", startPageNo);
+		model.addAttribute("endPageNo", endPageNo);
+		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("list", list);
 		
 		
 		return "board/list";
@@ -82,5 +80,15 @@ public class BoardController {
 	@RequestMapping("/board/update")
 	public String update(){
 		return "redirect:/board/list";
+	}
+	
+	@RequestMapping("/board/detail")
+	public String detail(int boardNo, Model model){
+		boardService.addHitcount(boardNo);
+		Board board=boardService.getBoard(boardNo);
+		model.addAttribute("board", board);
+		
+		return "board/detail";
+		
 	}
 }
