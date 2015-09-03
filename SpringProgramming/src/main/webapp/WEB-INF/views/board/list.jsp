@@ -69,6 +69,15 @@
 				color:aqua;
 			}
 			
+			.title{
+				text-decoration:none;
+				color:white;
+			}
+			
+			.title:hover{
+				color:gray;
+			}
+			
 		</style>
 	</head>
 	
@@ -87,7 +96,7 @@
 			<c:forEach var="board" items="${list}">
 				<tr>
 					<td>${board.no}</td>
-					<td><a href="detail?boardNo=${board.no}">${board.title}</a></td>
+					<td><a class="title" href="detail?boardNo=${board.no}">${board.title}</a></td>
 					<td>${board.writer}</td>
 					<td>${board.date}</td>
 					<td>${board.hitcount}</td>
