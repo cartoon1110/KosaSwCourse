@@ -126,6 +126,7 @@
 						<li><a href="board/list" target="iframe">일반 게시판</a></li>
 						<li><a href="phote/list" target="iframe">사진 게시판</a></li>
 						<li><a href="file/list" target="iframe">자료 게시판</a></li>
+						<li><a href="login/list" target="iframe">로그인</a></li>
 					</ul>
 				</div>
 			<div id="content">
