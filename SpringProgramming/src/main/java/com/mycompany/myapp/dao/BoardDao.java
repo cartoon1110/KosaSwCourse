@@ -21,13 +21,13 @@ public class BoardDao {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	public Integer insert(Board board){
+	public Integer insert(Board board) {
 		Integer pk = null;
 		String sql = "insert into boards (board_title, board_content, board_writer, board_date, board_original_file_name, board_filesystem_name, board_content_type) values(?, ?, ?, now(), ?, ?, ?)";
-		KeyHolder keyHolder=new GeneratedKeyHolder();
-		jdbcTemplate.update(new PreparedStatementCreator(){
+		KeyHolder keyHolder = new GeneratedKeyHolder();
+		jdbcTemplate.update(new PreparedStatementCreator() {
 			@Override
-			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException{
+			public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
 				PreparedStatement pstmt = conn.prepareStatement(sql, new String[] {"board_no"});
 				pstmt.setString(1, board.getTitle());
 				pstmt.setString(2, board.getContent());
@@ -37,26 +37,25 @@ public class BoardDao {
 				pstmt.setString(6, board.getContentType());
 				return pstmt;
 			}
-			
-		}, keyHolder);
-		Number keyNumber=keyHolder.getKey();
-		pk=keyNumber.intValue();
+		},keyHolder);
+		Number keyNumber = keyHolder.getKey();
+		pk = keyNumber.intValue();
 		return pk;
-		
-		}
+	}
 	
-	public List<Board> selectByPage(int pageNo, int rowsPerPage){
+	public List<Board> selectByPage(int pageNo, int rowsPerPage) {
 		String sql = "";
 		sql += "select board_no, board_title, board_writer, board_date, board_hitcount " ;
 		sql += "from boards ";
 		sql += "order by board_no desc ";
 		sql += "limit ?,?";
 		
-		List<Board> list=jdbcTemplate.query(sql,
-			new Object[]{(pageNo-1)*rowsPerPage , rowsPerPage},
-			new RowMapper<Board>(){ 
+		List<Board> list = jdbcTemplate.query(
+			sql, 
+			new Object[] { (pageNo-1)*rowsPerPage, rowsPerPage },
+			new RowMapper<Board>() {
 				@Override
-				public Board mapRow(ResultSet rs, int rownum) throws SQLException {
+				public Board mapRow(ResultSet rs, int rowNum) throws SQLException {
 					Board board = new Board();
 					board.setNo(rs.getInt("board_no"));
 					board.setTitle(rs.getString("board_title"));
@@ -65,16 +64,17 @@ public class BoardDao {
 					board.setHitcount(rs.getInt("board_hitcount"));
 					return board;
 				}
-			}		
-		);	
+			}
+		);
 		return list;
 	}
 	
 	public Board selectByPk(int boardNo) {
 		String sql = "select * from boards where board_no=?";
-		Board board=jdbcTemplate.queryForObject(sql,
+		Board board = jdbcTemplate.queryForObject(
+			sql,
 			new Object[] {boardNo},
-			new RowMapper<Board>() { 
+			new RowMapper<Board>() {
 				@Override
 				public Board mapRow(ResultSet rs, int rowNum) throws SQLException {
 					Board board = new Board();
@@ -96,38 +96,33 @@ public class BoardDao {
 	
 	public int update(Board board) {
 		String sql = "update boards set board_title=?, board_content=? where board_no=?";
-		int rows=jdbcTemplate.update(
-				sql,
-				board.getTitle(),
-				board.getContent(),
-				board.getNo()
+		int rows = jdbcTemplate.update(
+			sql,
+			board.getTitle(),
+			board.getContent(),
+			board.getNo()
 		);
 		return rows;
 	}
 	
-	public int delete(long boardNo){
+	public int delete(long boardNo) {
 		String sql = "delete from boards where board_no=?";
-		int rows=jdbcTemplate.update(
-				sql,
-				boardNo
+		int rows = jdbcTemplate.update(
+			sql,
+			boardNo
 		);
 		return rows;
 	}
 	
-	public int updateHitcount(long boardNo){
+	public int updateHitcount(long boardNo) {
 		String sql = "update boards set board_hitcount=board_hitcount+1 where board_no=?";
-		int rows=jdbcTemplate.update(
-				sql,
-				boardNo
-		);
+		int rows = jdbcTemplate.update(sql, boardNo);
 		return rows;
 	}	
 	
-	public int selectCount(){
+	public int selectCount() {
 		String sql = "select count(*) from boards";
-		int rows=jdbcTemplate.queryForObject(sql,
-				Integer.class
-		);
+		int rows = jdbcTemplate.queryForObject(sql, Integer.class);
 		return rows;
 	}
 }

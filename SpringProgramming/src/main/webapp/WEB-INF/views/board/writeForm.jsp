@@ -6,26 +6,21 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<style type="text/css">
-			body{
-				font-size:small;
+			body {
+				font-size: small;
+				color: white;
 			}
-			input{
-				font-size:12px;
-			}
-			td{
-				color:white;
-
-			}
-			table{
-				margin:120px;
-				border: 1px solid gray;
+			
+			input {
+				font-size: 12px;
 			}
 		</style>
 	</head>
 	
 	<body>
+		<h4>글쓰기</h4>
 		<form method="post" action="write" enctype="multipart/form-data">
-			<table id="form_table">
+			<table>
 				<tr>
 					<td>제목</td>
 					<td><input type="text" name="title"/></td>
@@ -40,18 +35,16 @@
 				</tr>
 				<tr>
 					<td>첨부</td>
-					<td><input type="file" name="attach"></input>
+					<td><input type="file" name="attach"/></td>
 				</tr>
-				
 				<tr>
-					<td colspan="2" style="text-align:center;">
+					<td colspan="2" style="text-align: center;">
 						<br/>
 						<input type="submit" value="글올리기"/>
-						<input type="reset" value="다시작성"/>
+						<input type="reset" value="다시작성"/>					
 					</td>
 				</tr>
 			</table>
-
 		</form>
 	</body>
 </html>

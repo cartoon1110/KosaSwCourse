@@ -10,7 +10,6 @@
 		</layout>
 	</appender>
 	
-	
 	<!-- Application Loggers -->
 	<logger name="com.mycompany.myapp">
 		<level value="info" />

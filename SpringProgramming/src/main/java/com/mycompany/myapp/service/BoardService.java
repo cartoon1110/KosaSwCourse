@@ -18,7 +18,7 @@ public class BoardService {
 		boardDao.insert(board);
 	}
 	
-	public List<Board> getPage(int pageNo, int rowsPerPage) {
+	public List<Board>  getPage(int pageNo, int rowsPerPage) {
 		List<Board> list = boardDao.selectByPage(pageNo, rowsPerPage);
 		return list;
 	}
@@ -39,11 +39,10 @@ public class BoardService {
 	public void addHitcount(long boardNo) {
 		boardDao.updateHitcount(boardNo);
 	}	
-
-	public int getTotalBoardNo(){
-		int rows=boardDao.selectCount();
+	
+	public int getTotalBoardNo() {
+		int rows = boardDao.selectCount();
 		return rows;
-		
 	}
 }
 

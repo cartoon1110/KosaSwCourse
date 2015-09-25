@@ -3,18 +3,25 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-			<property name="driverClass" value="com.mysql.jdbc.Driver"/>
-			<property name="jdbcUrl" value="jdbc:mysql://blueskii.iptime.org:3306/team4"/>
-			<property name="user" value="team4"/>
-			<property name="password" value="123456"/>
-			<property name="maxPoolSize" value="3"/><!-- 기본값 15 -->
-			<property name="minPoolSize" value="1"/><!-- 기본값 3 -->
-			<property name="initialPoolSize" value="1"/><!-- 기본값 3 -->
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	<!-- Connection Pool -->
+	<bean id="dataSource"
+		class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="com.mysql.jdbc.Driver"/>
+		<property name="jdbcUrl" value="jdbc:mysql://blueskii.iptime.org:3306/team0"/>
+		<property name="user" value="team0"/>
+		<property name="password" value="123456"/>
+		<property name="initialPoolSize" value="3"/> <!-- 풀에 생성되는 초기 커넥션 수(기본값:3)  -->
+		<property name="acquireIncrement" value="3"/> <!-- 증가되는 커넥션 수(기본값:3) -->
+		<property name="maxPoolSize" value="15"/> <!-- 풀의 최대 크기(기본값:15) -->
+		<property name="minPoolSize" value="3"/> <!-- 풀의 최소 크기(기본값:3) -->
+		<property name="checkoutTimeout" value="3000"/> <!-- 풀에서 커넥션을 가져올 대여 시간 -->
 	</bean>
 	
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+	<bean id="jdbcTemplate"
+		class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource" ref="dataSource"/>
 	</bean>
-	
+		
 </beans>
