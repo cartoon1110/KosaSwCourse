@@ -123,9 +123,7 @@
 					<ul>
 						<h4>스프링 기본</h4>
 						<li><a href="chap07/index" target="iframe">Chap07: 스프링 MVC</a></li>
-						<li><a href="chap08/index" target="iframe">Chap08: 스프링 MVC: 뷰구현</a></li>
-						<li><a href="chap11/index" target="iframe">Chap11: JDBC 지원</a></li>
-						<li><a href="chap12/index" target="iframe">Chap12: 트랜잭션 관리</a></li>
+						<li><a href="chap09/index" target="iframe">Chap09: WebSocket</a></li>
 						<li><a href="#">Chap18: 스프링 단위 테스트</a></li>
 					</ul>
 				

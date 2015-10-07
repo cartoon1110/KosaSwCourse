@@ -4,7 +4,9 @@
 	xmlns:beans="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	xmlns:websocket="http://www.springframework.org/schema/websocket"
+	xsi:schemaLocation="http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket-4.1.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd">
@@ -17,6 +19,9 @@
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
 	<resources mapping="/resources/**" location="/resources/" />
 
+	<!-- 컨트롤러가 처리하지 못한 요청을 처리한다.(단순히 파일을 읽고 보냄) -->
+	<default-servlet-handler/>
+
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
@@ -28,6 +33,27 @@
 	<!-- Multipart/form-data 포맷 해석자 등록(파일 업로드시 필요) -->
 	<beans:bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+		
+	<!-- MessageSource(Validation Error Code) -->
+	<beans:bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<beans:property name="basenames">
+			<beans:list>
+				<beans:value>message.errors</beans:value>
+			</beans:list>
+		</beans:property>
+		<beans:property name="defaultEncoding" value="UTF-8"/>	
+	</beans:bean>	
+		
+		
+	<!-- WebSocket handler -->
+	<websocket:handlers>
+		<websocket:mapping handler="chap09EchoHandler" path="/echo-ws"></websocket:mapping>
+		<websocket:mapping handler="chap09ChatHandler" path="/chat-ws"></websocket:mapping>
+		<websocket:mapping handler="chap09ChatColorHandler" path="/chatcolor-ws"></websocket:mapping>
+	</websocket:handlers>
+	
+	
 		
 	<!-- Transaction Manager -->
 	<beans:bean id="transactionManager"

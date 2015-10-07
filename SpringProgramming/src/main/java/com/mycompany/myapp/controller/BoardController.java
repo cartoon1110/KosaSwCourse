@@ -12,10 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.mycompany.myapp.dto.Board;
 import com.mycompany.myapp.service.BoardService;
@@ -36,7 +33,7 @@ public class BoardController {
 	public String write(Board board, HttpSession session) {	
 		logger.info("write()");
 		
-		//파일 정보 얻기
+		//�뙆�씪 �젙蹂� �뼸湲�
 		ServletContext application = session.getServletContext();
 		String dirPath = application.getRealPath("/resources/uploadfiles");
 		if(board.getAttach() != null) {
@@ -44,7 +41,7 @@ public class BoardController {
 			String filesystemName = System.currentTimeMillis() + "-" + originalFilename;
 			String contentType = board.getAttach().getContentType();
 			if(!board.getAttach().isEmpty()) {	
-				//파일에 저장하기
+				//�뙆�씪�뿉 ���옣�븯湲�
 				try {
 					board.getAttach().transferTo(new File(dirPath + "/" + filesystemName));
 				} catch (Exception e) { e.printStackTrace(); }
@@ -54,7 +51,7 @@ public class BoardController {
 			board.setContentType(contentType);
 		}
 		
-		//데이터 베이스에 게시물 정보 저장
+		//�뜲�씠�꽣 踰좎씠�뒪�뿉 寃뚯떆臾� �젙蹂� ���옣
 		boardService.add(board);
 		
 		return "redirect:/board/list";
@@ -72,27 +69,27 @@ public class BoardController {
 		int rowsPerPage = 10;
 		int pagesPerGroup = 5;
 				
-		//전체 게시물 수
+		//�쟾泥� 寃뚯떆臾� �닔
 		int totalBoardNo = boardService.getTotalBoardNo();
 		
-		//전체 페이지 수
+		//�쟾泥� �럹�씠吏� �닔
 		int totalPageNo = totalBoardNo/rowsPerPage;
 		if(totalBoardNo%rowsPerPage != 0) { totalPageNo++; }
 		
-		//전체 그룹 수
+		//�쟾泥� 洹몃９ �닔
 		int totalGroupNo = totalPageNo / pagesPerGroup;
 		if(totalPageNo%pagesPerGroup != 0) { totalGroupNo++; }
 		
-		//현재 그룹번호, 시작페이지번호, 끝페이지번호
+		//�쁽�옱 洹몃９踰덊샇, �떆�옉�럹�씠吏�踰덊샇, �걹�럹�씠吏�踰덊샇
 		int groupNo = (pageNo-1)/pagesPerGroup + 1;
 		int startPageNo = (groupNo-1)*pagesPerGroup + 1;
 		int endPageNo = startPageNo + pagesPerGroup - 1;
 		if(groupNo==totalGroupNo) { endPageNo = totalPageNo; }
 		
-		//현재 페이지 게시물 리스트
+		//�쁽�옱 �럹�씠吏� 寃뚯떆臾� 由ъ뒪�듃
 		List<Board> list = boardService.getPage(pageNo, rowsPerPage);
 		
-		//View로 넘길 데이터
+		//View濡� �꽆湲� �뜲�씠�꽣
 		model.addAttribute("pagesPerGroup", pagesPerGroup);
 		model.addAttribute("totalPageNo", totalPageNo);
 		model.addAttribute("totalGroupNo", totalGroupNo);
@@ -131,14 +128,6 @@ public class BoardController {
 		boardService.remove(boardNo);
 		return "redirect:/board/list";
 	}
+	
+	
 }
-
-
-
-
-
-
-
-
-
-
