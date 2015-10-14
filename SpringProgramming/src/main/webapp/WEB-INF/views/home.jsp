@@ -130,6 +130,7 @@
 					<ul>
 						<h4>스프링 게시판</h4>
 						<li><a href="board/list" target="iframe">일반 게시판</a></li>
+						<li><a href="board/list1" target="iframe">실험일반게시판</a></li>
 					</ul>
 				</div>
 				<div id="content">

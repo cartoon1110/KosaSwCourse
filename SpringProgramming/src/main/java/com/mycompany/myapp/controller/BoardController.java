@@ -130,4 +130,53 @@ public class BoardController {
 	}
 	
 	
+	@RequestMapping("/board/list1")
+	public String list1(
+			@RequestParam(value="pageNo", defaultValue="1") int pageNo, 
+			Model model, 
+			HttpSession session) {
+		logger.info("pageNo: " + pageNo);
+		
+		session.setAttribute("pageNo", pageNo);
+		
+		
+		int rowsPerPage=1;
+		/*int rowsPerPage = 10;*/
+		/*int pagesPerGroup = 5;*/
+				
+		//�쟾泥� 寃뚯떆臾� �닔
+		/*int totalBoardNo = boardService.getTotalBoardNo();
+		*/
+		
+		int totalPageNo=boardService.getTotalBoardNo();
+		//�쟾泥� �럹�씠吏� �닔
+		/*int totalPageNo = totalBoardNo/rowsPerPage;
+		*//*if(totalBoardNo%rowsPerPage != 0) { totalPageNo++; }*/
+		
+		/*//�쟾泥� 洹몃９ �닔
+		int totalGroupNo = totalPageNo / pagesPerGroup;
+		if(totalPageNo%pagesPerGroup != 0) { totalGroupNo++; }*/
+		
+		/*//�쁽�옱 洹몃９踰덊샇, �떆�옉�럹�씠吏�踰덊샇, �걹�럹�씠吏�踰덊샇
+		int groupNo = (pageNo-1)/pagesPerGroup + 1;
+		int startPageNo = (groupNo-1)*pagesPerGroup + 1;
+		int endPageNo = startPageNo + pagesPerGroup - 1;
+		if(groupNo==totalGroupNo) { endPageNo = totalPageNo; }*/
+		
+		//�쁽�옱 �럹�씠吏� 寃뚯떆臾� 由ъ뒪�듃
+		List<Board> list = boardService.getPage(pageNo, rowsPerPage);
+		
+		//View濡� �꽆湲� �뜲�씠�꽣
+/*		model.addAttribute("pagesPerGroup", pagesPerGroup);
+*/		model.addAttribute("totalPageNo", totalPageNo);
+/*		model.addAttribute("totalGroupNo", totalGroupNo);
+		model.addAttribute("groupNo", groupNo);
+		model.addAttribute("startPageNo", startPageNo);
+		model.addAttribute("endPageNo", endPageNo);*/
+		model.addAttribute("pageNo", pageNo);
+		model.addAttribute("list", list);
+		
+		return "board/list1";
+	}
+	
 }
