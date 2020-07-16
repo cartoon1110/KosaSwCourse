@@ -110,6 +110,7 @@ public class Chap07Controller {
 	@RequestMapping(value="/chap07/join", method=RequestMethod.POST)
 	public String login(Member member, BindingResult bindingResult) {
 		//유효성 검사 작업
+		// 테스트
 		new MemberValidator().validate(member, bindingResult);
 		if(bindingResult.hasErrors()){
 			return "chap07/joinForm";
